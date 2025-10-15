@@ -29,7 +29,7 @@ const Register = () => {
           <div className="mt-3">
             <p className="textarea-md">
             Already have an acount? Please{" "}
-            <Link to={"/login"} className="font-medium text-blue-600 hover:text-blue-50">
+            <Link to={"/login"} className="font-medium text-blue-600 hover:text-blue-40">
               Login
             </Link>
           </p>
