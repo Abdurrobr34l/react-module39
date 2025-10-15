@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Container from "../Container/Container";
+import logo from "../../../public/logo.png"
 
 const Header = () => {
   const navLinks = [
@@ -48,7 +49,9 @@ const Header = () => {
                 ))}
               </ul>
             </div>
-            <Link to={"/"} className="text-2xl font-bold">daisyUI</Link>
+            <Link to={"/"} className="text-2xl font-bold">
+            <img src={logo} alt="It is website logo" className="size-14"/>
+            </Link>
           </div>
 
           {/* Nav Menu */}
