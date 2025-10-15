@@ -2,7 +2,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="translate-y-1/5 flex justify-center">
       <title>Module-49 | Login</title>
 
       {/* Form */}

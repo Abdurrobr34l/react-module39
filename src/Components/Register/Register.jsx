@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="translate-y-1/5 flex justify-center">
       <title>Module-49 | Register</title>
 
       {/* Form */}
