@@ -1,7 +1,8 @@
-import React from "react";
+import React, { use } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Container from "../Container/Container";
 import logo from "../../../public/logo.png"
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 
 const Header = () => {
   const navLinks = [
@@ -9,6 +10,9 @@ const Header = () => {
     { id: 2, path: "/login", name: "Login" },
     { id: 3, path: "/register", name: "Register" },
   ];
+  
+  const userInfo = use(AuthContext)
+  console.log(userInfo);
 
   return (
     <header>

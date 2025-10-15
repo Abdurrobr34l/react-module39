@@ -4,6 +4,7 @@ import { auth } from "../../Firebase/Firebase.init";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
+  
   const handleRegister = (e) => {
     e.preventDefault(); //* Stop default server form submitting
     // const name = e.target.name.value;
@@ -11,7 +12,7 @@ const Register = () => {
     const password = e.target.password.value;
     // console.log(name, email, password);
 
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword  (auth, email, password)
     .then(result => {
       console.log(result);
     })
