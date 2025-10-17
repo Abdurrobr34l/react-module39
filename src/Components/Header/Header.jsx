@@ -25,7 +25,7 @@ const Header = () => {
         ]
       : [
           { id: 4, path: "/profile", name: "Profile" },
-          { id: 5, path: "/setting", name: "Setting" },
+          { id: 5, path: "/settings", name: "Settings" },
         ]),
   ];
 
