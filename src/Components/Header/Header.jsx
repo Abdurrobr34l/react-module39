@@ -1,18 +1,33 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Container from "../Container/Container";
-import logo from "../../../public/logo.png"
+import logo from "../../../public/logo.png";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 
 const Header = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    // e.preventDefault();
+    signOutUser()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const navLinks = [
     { id: 1, path: "/", name: "Home" },
-    { id: 2, path: "/login", name: "Login" },
-    { id: 3, path: "/register", name: "Register" },
+    ...(!user
+      ? [
+          { id: 2, path: "/login", name: "Login" },
+          { id: 3, path: "/register", name: "Register" },
+        ]
+      : [
+          { id: 4, path: "/profile", name: "Profile" },
+          { id: 5, path: "/setting", name: "Setting" },
+        ]),
   ];
-  
-  const userInfo = use(AuthContext)
-  console.log(userInfo);
 
   return (
     <header>
@@ -48,13 +63,20 @@ const Header = () => {
               >
                 {navLinks.map(({ id, path, name }) => (
                   <li key={id}>
-                    <NavLink to={path} className={"p-0 text-base font-semibold rounded-none hover:bg-transparent hover:text-blue-600"}>{name}</NavLink>
+                    <NavLink
+                      to={path}
+                      className={
+                        "p-0 text-base font-semibold rounded-none hover:bg-transparent hover:text-blue-600"
+                      }
+                    >
+                      {name}
+                    </NavLink>
                   </li>
                 ))}
               </ul>
             </div>
             <Link to={"/"} className="text-2xl font-bold">
-            <img src={logo} alt="It is website logo" className="size-14"/>
+              <img src={logo} alt="It is website logo" className="size-14" />
             </Link>
           </div>
 
@@ -63,7 +85,14 @@ const Header = () => {
             <ul className="menu menu-horizontal gap-10">
               {navLinks.map(({ id, path, name }) => (
                 <li key={id}>
-                  <NavLink to={path} className={"p-0 text-base font-semibold rounded-none hover:bg-transparent hover:text-blue-600"}>{name}</NavLink>
+                  <NavLink
+                    to={path}
+                    className={
+                      "p-0 text-base font-semibold rounded-none hover:bg-transparent hover:text-blue-600"
+                    }
+                  >
+                    {name}
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -71,7 +100,15 @@ const Header = () => {
 
           {/* Button */}
           <div className="navbar-end">
-            <a className="btn">Button</a>
+            {user ? (
+              <Link onClick={handleSignOut} className="btn header-button">
+                SignOut
+              </Link>
+            ) : (
+              <Link to={"/login"} className="btn header-button">
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </Container>
