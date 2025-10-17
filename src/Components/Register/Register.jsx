@@ -1,24 +1,36 @@
-import React from "react";
+import React, { use } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../../Firebase/Firebase.init";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
+// import { auth } from "../../Firebase/Firebase.init";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
-  
-  const handleRegister = (e) => {
-    e.preventDefault(); //* Stop default server form submitting
-    // const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    // console.log(name, email, password);
+  //* First handle to get data from this page only
+  // const handleRegister = (e) => {
+  //   e.preventDefault(); //* Stop default server form submitting
+  //   // const name = e.target.name.value;
+  //   const email = e.target.email.value;
+  //   const password = e.target.password.value;
+  //   // console.log(name, email, password);
 
-    createUserWithEmailAndPassword  (auth, email, password)
-    .then(result => {
-      console.log(result);
-    })
-    .catch(error => {
-      console.log(error);
-    })
+  //   createUserWithEmailAndPassword  (auth, email, password)
+  //   .then(result => {
+  //     console.log(result);
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   })
+  // };
+``
+  const { createUser } = use(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const email = e.email.target.value;
+    const password = e.email.target.password;
+
+    createUser(email, password);
   };
 
   return (
