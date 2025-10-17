@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthContext/AuthContext";
 // import { auth } from "../../Firebase/Firebase.init";
@@ -22,15 +22,21 @@ const Register = () => {
   //   })
   // };
 ``
-  const { createUser } = use(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
 
-    const email = e.email.target.value;
-    const password = e.email.target.password;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
 
-    createUser(email, password);
+    createUser(email, password)
+    .then(result => {
+      console.log(result.user);
+    })
+    .catch(error => {
+      console.log(error);
+    })
   };
 
   return (
