@@ -9,6 +9,7 @@ import AuthProvider from "./Contexts/AuthContext/AuthProvider.jsx";
 import Profile from "./Components/Profile/Profile.jsx";
 import PrivateRoutes from "./Routes/PrivateRoutes.jsx";
 import Settings from "./Settings/Settings.jsx";
+import Dashboard from "./Components/Dashboard/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
       {
         path: "/settings",
         element: <PrivateRoutes>{<Settings/>}</PrivateRoutes>
+      },
+      {
+        path: "/dashboard",
+        element: <PrivateRoutes>{<Dashboard/>}</PrivateRoutes>
       },
     ],
   },

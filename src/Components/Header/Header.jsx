@@ -22,10 +22,12 @@ const Header = () => {
       ? [
           { id: 2, path: "/login", name: "Login" },
           { id: 3, path: "/register", name: "Register" },
+          { id: 4, path: "/dashboard", name: "Dashboard" },
         ]
       : [
-          { id: 4, path: "/profile", name: "Profile" },
-          { id: 5, path: "/settings", name: "Settings" },
+          { id: 2, path: "/dashboard", name: "Dashboard" },
+          { id: 3, path: "/profile", name: "Profile" },
+          { id: 4, path: "/settings", name: "Settings" },
         ]),
   ];
 
