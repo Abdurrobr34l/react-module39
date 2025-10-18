@@ -4,7 +4,7 @@ import Container from '../Container/Container';
 const Profile = () => {
   return (
     <Container>
-      Profile
+      <h2>Profile</h2>
     </Container>
   );
 };
